@@ -1,0 +1,57 @@
+.header{
+    width: 100vw;
+    padding: 0 1rem;
+    background-color: blue;
+    display: flex;
+    align-items: center;
+    gap: 30rem;
+    color: white;
+}
+
+.nav{
+    display: flex;
+    flex-basis: 90%;
+    gap: 5rem;
+    align-items: center;
+}
+
+.nav ul{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    gap: 2rem;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.navLink{
+    color: white;
+    text-decoration: none;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    padding: 1.8rem;
+    
+}
+
+.navLink:hover{
+    background-color: lightseagreen;
+
+}
+
+.icons_container{
+    display: flex;
+    gap: 1rem;
+    flex-basis: 23% ;
+    align-items: center;
+    color: white;
+}
+
+.icons_container img{
+    cursor: pointer;
+}
+

@@ -1,0 +1,60 @@
+.container{
+    max-width: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2.5rem auto;
+}
+
+.addProduct_form_container{
+    width: 65%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: rgb(79, 92, 104);
+    color: rgb(225, 234, 244);
+    box-shadow: 0 0 12px 4px;
+    padding: 2rem 5rem 2rem 5rem;
+    gap: 1rem;
+}
+
+.addProduct_form_container form{
+    display: flex;
+    flex-direction: column;
+    /* gap: .5rem; */
+    width: 100%;
+}
+
+label{
+    font-size: 1rem;
+    color: rgb(225, 234, 244);
+}
+
+input,textarea{
+    width: 100%;
+    line-height: 1.5rem;
+    outline: none;
+    border: none;
+    border-bottom: 2px solid  rgb(202, 211, 220);
+    background-color: transparent;
+    color: rgb(225, 234, 244);
+    padding: .5rem;
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+textarea{
+    line-height: 1.2rem;
+    margin-top: .5rem;
+    margin-bottom: 2rem;
+}
+
+button{
+    font-size: 1.3rem;
+    width: 30%;
+    margin: 2rem 0;
+    color: rgb(225, 234, 244);
+    background-color: rgb(156, 160, 166);
+    padding: .5rem;
+    margin-left: auto;
+}

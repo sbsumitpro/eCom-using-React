@@ -1,0 +1,26 @@
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* margin: 1.5rem auto; */
+    padding: 5rem;
+}
+
+.pdContainer{
+    max-width: 65%;
+    background-color: rgb(79, 92, 104);
+    padding: 1.5rem;
+    color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+.top{
+    display: flex;
+    gap: 5rem;
+    margin: 1rem 0px;
+}
+
+.top button{
+    width: 50%;
+}
