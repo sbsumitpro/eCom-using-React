@@ -5,6 +5,7 @@ import {store} from "./redux/store"
 import { Product } from "./Pages/Home/Product";
 import {AddProduct} from "./Pages/Add-Product/AddProduct"
 import { ProductDetails } from "./Pages/ProductDetails/ProductDetails";
+import Cart from "./Pages/Cart/Cart"
 
 function App() {
 
@@ -13,7 +14,8 @@ function App() {
     children:[
       {index:true,element:<Product/>},
       {path:":id",element:<ProductDetails/>},
-      {path:"/add-product",element:<AddProduct/>}
+      {path:"/add-product",element:<AddProduct/>},
+      {path:"/cart", element:<Cart/>}
     ]}
   ]);
 

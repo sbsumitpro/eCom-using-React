@@ -1,26 +1,41 @@
-import { useState } from "react";
-import { useSelector } from "react-redux";
+import { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom"
-import { productSelector } from "../../redux/reducers/productReducer";
+import { getInitialState, productSelector } from "../../redux/reducers/productReducer";
 import css from "./ProductDetails.module.css"
+import { cartActions } from "../../redux/reducers/cartReducer";
 
 
 export const ProductDetails = ()=>{
     const [addCart, setAddCart] = useState(false)
+    useEffect(()=>{
+        dispatch(getInitialState())
+    },[])
 
     const pid = Number(useParams().id);
+    console.log("pid", pid)
     const products = useSelector(productSelector);
     const product = products.find((product)=>product.id===pid)
-    console.log(css)
+    console.log("products", products)
+    console.log("product", product)
+
+    const dispatch = useDispatch()
+    // console.log(css)
 
     const handleAddToCart = ()=>{
-        setAddCart(!addCart)
+        if(!addCart){
+            dispatch(cartActions.add({id:product.id, name:product.name, price:product.price, qty:1, imgUrl:product.imgUrl, category:product.category}))
+            setAddCart(!addCart)
+        }else{
+            dispatch(cartActions.delete(product.id))
+            setAddCart(!addCart)
+        }
     }
  
 
     return(
         <>
-            <div className={css.container}>
+            {product && <div className={css.container}>
                 <div className={css.pdContainer}>
                     <div>{product.category}</div>
                     <div className={css.top}>
@@ -55,7 +70,7 @@ export const ProductDetails = ()=>{
                         <p>{product.description}</p>
                     </div>
                 </div>
-            </div>
+            </div>}
         </>
     )
 }

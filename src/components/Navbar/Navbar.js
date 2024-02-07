@@ -1,8 +1,11 @@
 import css from "./Navbar.module.css"
 import {NavLink, Outlet } from "react-router-dom"
+import {useSelector} from "react-redux";
+import {cartSelector} from "../../redux/reducers/cartReducer"
 console.log("---active..",css)
 
 export const Navbar = ()=>{
+    const cart = useSelector(cartSelector)
     return(
         <>
         <div className={css.header}>
@@ -18,7 +21,12 @@ export const Navbar = ()=>{
                     S Biswas
                 </span>
                 <img src="https://cdn-icons-png.flaticon.com/128/1077/1077114.png" alt="Account" height="30px"/>
-                <img src="https://cdn-icons-png.flaticon.com/128/3144/3144456.png" alt="cart" height="30px" />
+                <div className={css.cartIcon}>
+                    <NavLink to="/cart">
+                        <img src="https://cdn-icons-png.flaticon.com/128/3144/3144456.png" alt="cart" />
+                    </NavLink>
+                        <div className={css.cartCount}> {cart.length} </div>
+                </div>
             </div>
         </div>
             <Outlet/>

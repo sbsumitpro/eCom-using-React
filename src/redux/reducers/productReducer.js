@@ -17,7 +17,7 @@ export const getInitialState = createAsyncThunk("product/getInitialState",
     async(_, thunkAPI)=>{
         try{
             const res = await axios.get("https://my-json-server.typicode.com/sbsumitpro/ecom_react_json_data/products");
-            console.log(res.data)
+            // console.log(res.data)
             thunkAPI.dispatch(actions.setInitialState(res.data))
         }
         catch(err){
@@ -35,7 +35,7 @@ const productSlice = createSlice({
             state.products = [...action.payload];
         },
         add : (state,action)=>{
-            console.log("inside action----> ",action.payload)
+            // console.log("inside action----> ",action.payload)
             const {name, price, rating, desc:description} = action.payload;
             state.products.push({
                 id:state.products.length+1,
@@ -49,7 +49,7 @@ const productSlice = createSlice({
         },
         update:(state,action)=>{
             const {name, price, description}=action.payload
-            console.log("inside action----> ",action.payload)
+            // console.log("inside action----> ",action.payload)
             let prod = state.products.find((product,i)=>product.id===action.payload.productID)
             prod.name = name;
             prod.price = price;
@@ -62,7 +62,7 @@ const productSlice = createSlice({
         },
         sort:(state, action)=>{
             state.products.sort((a,b)=>a.price-b.price)
-            console.log("--->>",state.products)
+            // console.log("--->>",state.products)
             // state.products = [...products]
         }
     }

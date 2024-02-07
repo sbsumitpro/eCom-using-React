@@ -36,7 +36,7 @@ export const Product = ()=>{
                 }
             
             })
-        console.log("editedValues",editedValues)
+        // console.log("editedValues",editedValues)
     }
 
     const handleCancel = ()=>{
@@ -48,12 +48,12 @@ export const Product = ()=>{
         let {name, price, description} = editedValues[productID]
         let params = {productID,name, price, description }
         dispatch(actions.update(params))
-        console.log("Saved", params)
+        // console.log("Saved", params)
         setEditMode(null);
     }
 
     const handleDelete = (productID)=>{
-        console.log("deleted")
+        // console.log("deleted")
         dispatch(actions.delete(productID));
     }
 
