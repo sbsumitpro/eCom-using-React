@@ -13,14 +13,11 @@ export const ProductDetails = ()=>{
     },[])
 
     const pid = Number(useParams().id);
-    console.log("pid", pid)
+
     const products = useSelector(productSelector);
     const product = products.find((product)=>product.id===pid)
-    console.log("products", products)
-    console.log("product", product)
 
     const dispatch = useDispatch()
-    // console.log(css)
 
     const handleAddToCart = ()=>{
         if(!addCart){

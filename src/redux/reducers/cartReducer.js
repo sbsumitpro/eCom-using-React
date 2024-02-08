@@ -21,9 +21,7 @@ const cartSlice = createSlice({
             })
         },
         delete:(state, action)=>{
-            console.log("deleted",action.payload)
             let new_cart = state.cart.filter(item=>item.id !== action.payload)
-            console.log("new cart ",new_cart)
             state.cart = [...new_cart];
         },
         increaseCount:(state,action)=>{

@@ -2,15 +2,7 @@ import {createSlice, createAsyncThunk} from "@reduxjs/toolkit";
 import axios from "axios";
 
 const initialState = {
-    products : [{
-        "id": 1,
-        "name": "5 Seater Sofa Set",
-        "description": "LEGEND HOME FURNITURE is an Indian brand that has been working for the most recent 20 Years in India and our Item quality is amazing we have confidence in quality work and craftsmanship. ",
-        "category": "Furniture",
-        "price": 27499,
-        "rating": 4.8,
-        "imgUrl": "https://m.media-amazon.com/images/I/51lMYExDsxL.jpg"
-      }]
+    products : []
 }
 
 export const getInitialState = createAsyncThunk("product/getInitialState",

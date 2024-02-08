@@ -25,7 +25,11 @@ export const Navbar = ()=>{
                     <NavLink to="/cart">
                         <img src="https://cdn-icons-png.flaticon.com/128/3144/3144456.png" alt="cart" />
                     </NavLink>
-                        <div className={css.cartCount}> {cart.length} </div>
+                        <div className={css.cartCount}> 
+                        {cart.reduce((total, item)=>{
+                                return total+ item.qty
+                            },0)}
+                        </div>
                 </div>
             </div>
         </div>

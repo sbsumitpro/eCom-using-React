@@ -1,20 +1,21 @@
-// import css from "./Cart.module.css"
 import { useDispatch, useSelector } from "react-redux";
 import { cartSelector, cartActions } from "../../redux/reducers/cartReducer";
 import { NavLink } from "react-router-dom";
 
 const Cart = () => {
     const cart = useSelector(cartSelector)
-    // console.log("cart--", cart)
     const dispatch = useDispatch()
 
     const handleIncreaseCount = (id)=>{
-      console.log("id---",id)
       dispatch(cartActions.increaseCount(id))
     }
 
     const handleDecreaseCount = (id)=>{
       dispatch(cartActions.decreaseCount(id))
+    }
+
+    const handleDelete =(id)=>{
+      dispatch(cartActions.delete(id))
     }
 
     return (
@@ -29,7 +30,11 @@ const Cart = () => {
                       <div className="p-5">
                         <div className="d-flex justify-content-between align-items-center mb-5">
                           <h1 className="fw-bold mb-0 text-black">Shopping Cart</h1>
-                          <h6 className="mb-0 text-muted">{cart.length} items</h6>
+                          <h6 className="mb-0 text-muted">
+                            {cart.reduce((total, item)=>{
+                                return total+ item.qty
+                            },0)} items
+                            </h6>
                         </div>
                         <hr className="my-4" />
                         {cart.map((item, ind)=>(
@@ -68,7 +73,7 @@ const Cart = () => {
                                 <div className="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
                                     <h6 className="mb-0">₹ {item.price}</h6>
                                 </div>
-                                <div className="col-md-1 col-lg-1 col-xl-1 text-end">
+                                <div className="col-md-1 col-lg-1 col-xl-1 text-end" onClick={()=>handleDelete(item.id)}>
                                     <a href="#!" className="text-muted">
                                     <i className="fas fa-times"></i>
                                     </a>
